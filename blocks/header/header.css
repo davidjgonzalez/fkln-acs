@@ -1,4 +1,14 @@
 /* header and nav layout */
+.header-wrapper {
+  background-color: var(--overlay-background-color);
+}
+
+.header {
+  width: 1200px;
+  margin: 0 auto;
+
+}
+
 header nav {
   display: grid;
   grid-template:
@@ -8,8 +18,7 @@ header nav {
   padding: 0 2rem;
   position: fixed;
   z-index: 1;
-  background-color: var(--background-color);
-  width: 100vw;
+  background-color: var(--overlay-background-color);
   height: var(--nav-height);
   box-sizing: border-box;
   font-family: var(--body-font-family);
@@ -17,6 +26,7 @@ header nav {
 
 header nav a:any-link {
   color: currentcolor;
+  white-space: nowrap;
 }
 
 header nav[aria-expanded='true'] {

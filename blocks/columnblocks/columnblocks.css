@@ -1,0 +1,11 @@
+.columnblocks {
+    margin: 3rem auto;
+}
+
+.columnblocks > div {
+    display: flex;
+}
+
+.columnblocks.gap-big > div {
+    gap: 4rem;
+}

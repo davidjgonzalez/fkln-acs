@@ -1,22 +1,25 @@
+/* eslint-disable array-callback-return */
 import {
   sampleRUM,
   buildBlock,
   loadHeader,
   loadFooter,
-  decorateButtons,
   decorateIcons,
   decorateSections,
-  decorateBlocks,
+  decorateBlock,
   decorateTemplateAndTheme,
   waitForLCP,
   loadBlocks,
   loadCSS,
 } from './lib-franklin.js';
+import { buildAutoBlock as autoBuildColumnBlocks } from '../blocks/columnblocks/columnblocks.js';
 
-const LCP_BLOCKS = []; // add your LCP blocks to the list
-window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
+const LCP_BLOCKS = ['hero']; // add your LCP blocks to the list
+window.hlx.RUM_GENERATION = 'ACS AEM Commons'; // add your RUM generation information here
 
 function buildHeroBlock(main) {
+
+  /*
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
   // eslint-disable-next-line no-bitwise
@@ -25,6 +28,54 @@ function buildHeroBlock(main) {
     section.append(buildBlock('hero', { elems: [picture, h1] }));
     main.prepend(section);
   }
+  */
+}
+
+function getElementSequence(origin, rules) {
+  let el = origin;
+  const elements = [];
+
+  const match = rules.every((rule) => {
+    if (!el) {
+      return false;
+    }
+
+    if (typeof rule === 'function') {
+      // custom function evaluator
+      if (rule(el)) {
+        elements.push(el);
+      } else {
+        return false;
+      }
+    } else if (typeof rule === 'string') {
+      // selector
+      if (el.matches(rule)) {
+        elements.push(el);
+      } else {
+        return false;
+      }
+    }
+
+    el = el.nextSibling;
+    return true;
+  });
+
+  return match ? (elements?.length === rules.length) : false;
+}
+
+function buildOsgiConfigurationBlock(main) {
+  const scope = main.querySelector('.documentation');
+  if (!scope) { return false; }
+
+  scope.querySelector('code').forEach((origin) => {
+    const elements = getElementSequence(origin, [(el) => el.innerText?.contains('.cfg.json'), 'code']);
+
+    if (elements) {
+      const section = document.createElement('div');
+      section.append(buildBlock('osgi-configuration', { elems: elements }));
+      main.prepend(section);
+    }
+  });
 }
 
 /**
@@ -33,7 +84,7 @@ function buildHeroBlock(main) {
  */
 function buildAutoBlocks(main) {
   try {
-    buildHeroBlock(main);
+    autoBuildColumnBlocks(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -47,11 +98,11 @@ function buildAutoBlocks(main) {
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   // hopefully forward compatible button decoration
-  decorateButtons(main);
+  // decorateButtons(main);
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
-  decorateBlocks(main);
+  main.querySelectorAll('div.section > div > div').forEach(decorateBlock);
 }
 
 /**

@@ -1,0 +1,6 @@
+.section.two-up {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    margin: 2rem 0;
+}

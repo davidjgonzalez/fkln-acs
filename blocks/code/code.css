@@ -1,0 +1,90 @@
+.code .hidden { display: none; opacity: 0; }
+
+.code {
+    padding: 2rem 5rem 4rem 5rem;
+    border-radius: 30px;
+    background-color: #f7f7f7;
+}
+
+.code .title {
+    text-align: center;
+    margin: 1rem 0 4rem 0;
+    padding: 0;
+}
+
+.code .container {
+
+}
+
+.code .tabs { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    flex-flow: row wrap; 
+    gap: 3rem; 
+    border-bottom: solid 2px #999;
+}
+
+.code .tab { 
+    margin: 0 1rem;
+    font-size: 1.5rem; 
+    margin-bottom: -2px;
+    color: #999;
+}
+
+.code .tab.active {
+    font-weight: bold;
+    color: red;
+    border-bottom: solid 2px red;
+}
+
+.code .tab:hover {
+    cursor: pointer;
+}
+
+.code .info {
+    font-size: 1.25rem;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    border-radius: 10px 10px 0 0;
+    padding: 1rem 2rem;
+    border-bottom: solid 1px #666;
+    color: #999;
+
+}
+
+.code .tab-panel {
+    opacity: 1;
+    transition: opacity 2s linear;
+}
+
+
+.code .code-label {
+    font-size: 1.25rem;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    border-radius: 10px 10px 0 0;
+    padding: 1rem 2rem;
+    border-bottom: solid 1px #666;
+    color: #eee;
+
+}
+
+.code .code-block {
+    background-color: black;
+    border-radius: 0 0 10px 10px;
+    font-size: var(--body-font-size-s);
+    padding: 1rem;
+    overflow: scroll;
+    margin: 0;
+    display: block;
+    
+}
+
+.code .code-block pre, .code .code-block code {
+    background-color: black;
+    color: hotpink;
+}

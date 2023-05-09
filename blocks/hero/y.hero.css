@@ -1,0 +1,91 @@
+/* block specific CSS goes here */
+
+.hero-container {
+    background-color: white;
+    border-bottom: solid 1px #eee;
+}
+
+.hero__wrapper {
+    display: flex;
+    gap: 3rem;
+}
+
+.hero__column--left {
+    flex-grow: 1;
+}
+
+.hero__title {
+    font-size: 5rem;
+    font-weight: bolder;
+    line-height: 4.5rem;
+}
+
+.hero__description {
+}
+
+.hero__button-container { 
+    margin: 0;
+    padding: 0;
+}
+
+.hero .hero__button {
+    border-radius: 15px !important;
+}
+
+.hero__button.hero__button--primary {
+    padding: 1rem 2rem !important;
+    background-color: red !important;
+    font-weight: 100;
+}
+
+.hero__button.hero__button--primary:hover {
+    text-decoration: underline;
+}
+
+.hero .hero__button--secondary {
+    background-color: transparent !important;
+    color: black !important;
+    margin: 0 !important;
+}
+
+.hero .hero__button--secondary:hover {
+    text-decoration: underline;
+}
+
+.hero .hero__button--secondary::after {
+    content: ' ➜';
+}
+
+.hero__column--right {
+    justify-self: center;
+    align-self: center;
+}
+
+.hero__image {
+}
+
+.hero__image img {
+}
+
+
+/*
+[0] <div class="hero home block" data-block-name="hero" data-block-status="loaded"> 
+[1]    <div>
+[2]        <div>
+[3]            <h4 class="hero__title">dfasdfd<h4>
+[4]            <p class="hero__description">ACS AEM Commons 6.0 is AEM as a Cloud Service compatible! New TouchUI and everything!</p>
+[5]            <p class="hero__button--primary" class="button-container"><strong><a href="https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases" title="Download" class="button primary">Download</a></strong></p>
+[6]            <p class="hero__button--secondary" class="button-container"><a href="https://github.com/Adobe-Consulting-Services/acs-aem-commons/releases" title="Release notes" class="button primary">Release notes</a></p>
+        </div>
+        <div>
+[7]            <picture>
+                <source type="image/webp" srcset="./media_17e9dd0aae03d62b8ebe2159b154d6824ef55732d.png?width=2000&amp;format=webply&amp;optimize=medium" media="(min-width: 400px)">
+                <source type="image/webp" srcset="./media_17e9dd0aae03d62b8ebe2159b154d6824ef55732d.png?width=750&amp;format=webply&amp;optimize=medium">
+                <source type="image/png" srcset="./media_17e9dd0aae03d62b8ebe2159b154d6824ef55732d.png?width=2000&amp;format=png&amp;optimize=medium" media="(min-width: 400px)">
+                <img loading="lazy" alt="" type="image/png" src="./media_17e9dd0aae03d62b8ebe2159b154d6824ef55732d.png?width=750&amp;format=png&amp;optimize=medium" width="1600" height="1066">
+            </picture>
+        </div>
+    </div>
+</div>
+*/
+

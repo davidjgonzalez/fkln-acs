@@ -9,18 +9,24 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+ @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,600;1,700;1,900&display=swap');
 
  :root {
+
   /* colors */
-  --link-color: #035fe6;
-  --link-hover-color: #136ff6;
+  --primary-color: #eee;
+  --accent-color: #ccc;
+
+  --link-color: #333;
+  --link-hover-color: #000;
   --background-color: #fff;
-  --overlay-background-color: #eee;
-  --highlight-background-color: #ccc;
-  --text-color: #000;
+  --overlay-background-color: #ccc;
+  --highlight-background-color: #fff;
+  --text-color: #444;
+  --overlay-text-color: #000;
 
   /* fonts */
-  --body-font-family: 'helvetica neue', helvetica, ubuntu, roboto, noto, sans-serif;
+  --body-font-family:  'Source Sans Pro', sans-serif;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
@@ -30,25 +36,24 @@
   --body-font-size-xs: 14px;
 
   /* heading sizes */
-  --heading-font-size-xxl: 48px;
-  --heading-font-size-xl: 40px;
-  --heading-font-size-l: 32px;
-  --heading-font-size-m: 24px;
-  --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px;
+  --heading-font-size-xxl: 900;
+  --heading-font-size-xl: 36x;
+  --heading-font-size-l: 28px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
 
   /* nav height */
   --nav-height: 64px;
-
 }
 
 body {
   font-size: var(--body-font-size-m);
-  margin: 0;
+  margin: 0 auto;
+  max-width: 800px;
   font-family: var(--body-font-family);
-  line-height: 1.6;
+  line-height: 1.4;
   color: var(--text-color);
-  background-color: var(--background-color);
   display: none;
 }
 
@@ -85,11 +90,13 @@ p, dl, ol, ul, pre, blockquote {
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover {
   text-decoration: underline;
   color: var(--link-hover-color);
+  cursor: pointer;
 }
 
 code, pre, samp {
@@ -107,6 +114,7 @@ pre {
 
 /* buttons */
 
+/*
 a.button:any-link, button {
   font-family: var(--body-font-family);
   display: inline-block;
@@ -142,7 +150,7 @@ a.button.secondary, button.secondary {
   border: 2px solid currentcolor;
   color: var(--text-color)
 } 
-
+*/
 
 main input {
   font-size: 1.25rem;
@@ -232,6 +240,95 @@ main .section[data-section-status='initialized'] {
   display: none;
 }
 
-main .section.highlight {
-  background-color: var(--highlight-background-color);
+
+[data-align="center"] {
+  text-align: center;
 }
+
+.columns.cards > div {
+}
+
+.columns.cards > div > div h4 {
+  color: black;
+}
+.columns.cards > div > div  {
+  border: dashed 1px var(--accent-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: .5rem 3rem;
+}
+
+
+.columns.titled-cards h2 {
+  margin-top: 0;
+  text-shadow: 0 1px 2px #ccc;
+}
+
+
+.columns.titled-cards > div:last-child > div {
+  padding: .5rem 3rem;  
+  border-radius: 1rem;
+  box-shadow:   
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 100px 80px rgba(0, 0, 0, 0.02);
+
+}
+
+
+/* Cards
+.columns.cards > div {
+  gap: 5rem;  
+}
+
+.columns.cards > div > div h4 {
+  color: black;
+}
+.columns.cards > div > div  {
+  background-color: var(--background-color);
+  border-radius: 1rem;
+  box-shadow: 0 0 50px 0px #ccc;
+  padding: .5rem 3rem;
+  color: #666;
+}
+ */
+
+
+ .section.highlight {
+  background-color: #f7f7f7;
+ }
+
+ .opensource > div > div:first-child {
+  flex-grow: 2;
+ }
+
+ .opensource > div > div:last-child {
+  align-self: center;
+ }
+
+ .opensource img { 
+    max-height: 260px;
+    object-fit: contain;
+}
+
+
+
+.button {
+  padding: 0;
+  line-height: 4rem;
+  height: 4rem;
+  border-radius: 2rem;
+  text-align: center;
+  display: block;
+  padding: 0 2rem;
+}
+
+
+.section.two-up > :not(.default-content-wrapper) { 
+
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 1;
+  grid-gap: 2rem;
+}
+

@@ -1,0 +1,31 @@
+.slider-wrapper {
+}
+
+.slider {
+    border: dashed 1px var(--accent-color);
+    padding: 1rem 2rem;
+}
+
+.slider__slide {
+}
+
+.slider__slide--0 {
+    display: flex;
+}
+
+.slider__slide-title {
+}
+
+.slider__slide-description {
+}
+
+.slider__slide-image-wrapper {
+}
+
+.slider__slide-image {
+    overflow: clip;
+}
+
+.slider__slide-image img {
+    width: 100%;
+}

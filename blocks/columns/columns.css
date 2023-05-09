@@ -10,7 +10,7 @@
 @media (min-width: 900px) {
     .columns > div {
         display: flex;
-        align-items: center;
+        align-items: top;
         flex-direction: unset;
     }
 
@@ -22,4 +22,29 @@
     .columns > div > div:first-of-type {
         margin-left: unset;
     }
+}
+
+
+.columns.info-blurb {
+    margin: 0 auto;
+    max-width: 90%;
+    text-align: center;
+    vertical-align: top;
+}
+
+.columns.info-blurb>div {
+    padding: 0 2rem;
+}
+
+.columns.info-blurb>div>div>strong {
+
+}
+
+.columns.info-blurb p {
+
+}
+
+
+.columns [data-align="center"] {
+    text-align: center;
 }

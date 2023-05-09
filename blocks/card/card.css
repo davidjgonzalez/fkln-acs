@@ -1,0 +1,115 @@
+.card {
+    border-radius: 50px;
+}
+
+.card .top {
+    border-radius: 50px 50px 0 0;
+    padding: 2.5rem 2.5rem 1rem 2.5rem;
+}
+
+.card .bottom {
+    border-radius: 0 0 50px 50px;
+    padding: 2rem 4rem 2.5rem 4rem;
+}
+
+.card .eyebrow {
+    text-transform: uppercase;
+    font-size: var(--font-size-small);
+    margin: 0;
+    padding: 0;
+}
+
+.card .title {
+    margin: 1rem 0 0 0;
+    padding: 0;
+}
+
+.card .button {
+    padding: 0;
+    line-height: 4rem;
+    height: 4rem;
+    border-radius: 2rem;
+    text-align: center;
+    display: block;
+    margin: 2rem auto;
+    background-color: white;
+    max-width: 400px;
+}
+
+.card .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+.card .list-item {
+    line-height: 2.5rem;
+
+}
+
+.card .list-item::before {
+    content: "✔";
+    margin-left: -1rem;
+    padding-right: 1rem;
+}
+
+.card .description {
+
+}
+
+
+/** Variants **/
+
+/** Shadow **/
+
+.card.shadow {
+    box-shadow: 0 4px 40px 0 rgb(200 100 100 / 80%);
+}
+
+/** Rounded **/
+
+.card.rounded {
+    
+}
+
+/** Red **/
+
+.card.red {
+    color: white;
+}
+
+.card.red .top {
+    background-color: red;
+    background: linear-gradient(red, rgb(209, 48, 48));
+}
+
+.card.red .button {
+    background-color: rgb(159, 0, 0);
+    color: white;
+}
+
+.card.red .bottom {
+    background-color: rgb(255, 189, 200);
+    color: black;
+}
+
+/** Grey **/
+
+.card.grey {
+    background-color: #666;
+    color: white;
+}
+
+.card.grey .top {
+    background: linear-gradient(rgb(31, 27, 27), rgb(59, 58, 58));
+}
+
+.card.grey .button {
+    background: linear-gradient(.25turn, rgb(30, 30, 30), rgb(0, 0, 0));
+    color: white;
+}
+
+.card.grey .bottom {
+    color: white;
+}
