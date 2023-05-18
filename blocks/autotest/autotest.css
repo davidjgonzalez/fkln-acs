@@ -1,0 +1,36 @@
+.autotest {
+
+    border: solid 1px red;
+    background-color: pink;
+    padding: 2rem;
+}
+
+.autotest .container {
+    display: flex;
+    gap: 2rem;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.autotest .text {
+    width: 60%;
+}
+
+.autotest .image {
+}
+
+.autotest .image img {
+    width: 300px;
+    object-fit: cover;
+}
+
+.autotest .title {
+    text-decoration: underline;
+    text-transform: uppercase;
+
+}
+
+.autotest .content {
+    text-transform: lowercase;
+}

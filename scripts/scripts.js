@@ -13,6 +13,7 @@ import {
   loadCSS,
 } from './lib-franklin.js';
 import { buildAutoBlock as autoBuildColumnBlocks } from '../blocks/columnblocks/columnblocks.js';
+import { Elements, getElementsInRange } from '../utils/auto-blocker.js';
 
 const LCP_BLOCKS = ['hero']; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'ACS AEM Commons'; // add your RUM generation information here
@@ -31,44 +32,14 @@ function buildHeroBlock(main) {
   */
 }
 
-function getElementSequence(origin, rules) {
-  let el = origin;
-  const elements = [];
-
-  const match = rules.every((rule) => {
-    if (!el) {
-      return false;
-    }
-
-    if (typeof rule === 'function') {
-      // custom function evaluator
-      if (rule(el)) {
-        elements.push(el);
-      } else {
-        return false;
-      }
-    } else if (typeof rule === 'string') {
-      // selector
-      if (el.matches(rule)) {
-        elements.push(el);
-      } else {
-        return false;
-      }
-    }
-
-    el = el.nextSibling;
-    return true;
-  });
-
-  return match ? (elements?.length === rules.length) : false;
-}
-
+/*
 function buildOsgiConfigurationBlock(main) {
   const scope = main.querySelector('.documentation');
   if (!scope) { return false; }
 
   scope.querySelector('code').forEach((origin) => {
-    const elements = getElementSequence(origin, [(el) => el.innerText?.contains('.cfg.json'), 'code']);
+    const elements = getElementSequence(origin, 
+      [(el) => el.innerText?.contains('.cfg.json'), 'code']);
 
     if (elements) {
       const section = document.createElement('div');
@@ -76,7 +47,15 @@ function buildOsgiConfigurationBlock(main) {
       main.prepend(section);
     }
   });
+} */
+
+function autoBlockTest(main) {
+  getElementsInRange(main, ['[', 'h1', '*', 'a', 'picture', ']'], 'main > div').forEach((autoBlock) => {
+
+    autoBlock.inject(buildBlock('autotest', { elems: autoBlock.elements }));
+  });
 }
+
 
 /**
  * Builds all synthetic blocks in a container element.
@@ -85,6 +64,7 @@ function buildOsgiConfigurationBlock(main) {
 function buildAutoBlocks(main) {
   try {
     autoBuildColumnBlocks(main);
+    autoBlockTest(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);

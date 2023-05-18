@@ -56,6 +56,7 @@ export const Extractors = {
   link: (element) => ({
     type: 'link',
     url: element.getAttribute('href'),
+    href: element.getAttribute('href'),
     text: element.textContent.trim(),
     html: element.outerHTML.trim(),
     element,
